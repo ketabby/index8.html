@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <h2>Welcome, <span id="name"></span>!</h2>
+        <p>Thank you for logging in.</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <script>
+        // Retrieve the name from local storage and display it
+        const name = localStorage.getItem('name');
+        if (name) {
+            document.getElementById('name').innerText = name;
+        } else {
+            // If no name is found in local storage, redirect to the login page
+            window.location.href = 'index4.html';
+        }
+
+        function logout() {
+            // Clear the username and name from local storage and redirect to the login page
+            localStorage.removeItem('username');
+            localStorage.removeItem('name');
+            window.location.href = 'index4.html';
+        }
+    </script>
+</body>
+</html>
